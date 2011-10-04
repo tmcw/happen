@@ -1,17 +1,17 @@
 **happen** wraps the `createEvent` DOM API to make real
 event mocking in-browser palatable.
 
-API:
+```javascript
+var element = document.getElementById('map');
 
-    var element = document.getElementById('map');
+// click shortcut
+happen.click(element);
 
-    // click shortcut
-    happen.click(element);
+// dblclick shortcut
+happen.dblclick(element);
 
-    // dblclick shortcut
-    happen.dblclick(element);
-
-    // custom options
-    happen.dblclick(element, { shift: true });
+// custom options
+happen.dblclick(element, { shift: true });
+```
 
 Licensed BSD.
