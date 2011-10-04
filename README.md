@@ -14,4 +14,6 @@ happen.dblclick(element);
 happen.dblclick(element, { shift: true });
 ```
 
+Use it with a testing framework, like [Jasmine](http://pivotal.github.com/jasmine/).
+
 Licensed BSD.
