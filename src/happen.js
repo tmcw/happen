@@ -46,5 +46,5 @@
         }));
     };
 
-    this.hallucination = h;
+    this.happen = h;
 })(this);

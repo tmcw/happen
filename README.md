@@ -1,4 +1,4 @@
-**hallucination** wraps the `createEvent` DOM API to make real
+**happen** wraps the `createEvent` DOM API to make real
 event mocking in-browser palatable.
 
 API:
@@ -6,12 +6,12 @@ API:
     var element = document.getElementById('map');
 
     // click shortcut
-    hallucination.click(element);
+    happen.click(element);
 
     // dblclick shortcut
-    hallucination.dblclick(element);
+    happen.dblclick(element);
 
     // custom options
-    hallucination.dblclick(element, { shift: true });
+    happen.dblclick(element, { shift: true });
 
 Licensed BSD.
