@@ -14,6 +14,14 @@ happen.dblclick(element);
 happen.dblclick(element, { shift: true });
 ```
 
+Shortcuts:
+
+* `happen.click`
+* `happen.dblclick`
+* `happen.mousedown`
+* `happen.mouseup`
+* `happen.mousemove`
+
 Use it with a testing framework, like [Jasmine](http://pivotal.github.com/jasmine/).
 
 Licensed BSD.

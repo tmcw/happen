@@ -33,11 +33,16 @@
         x.dispatchEvent(evt);
     };
 
-    h.click = function(x, o) {
-        h.once(x, extend(o || {}, {
-            type: 'click'
-        }));
-    };
+    var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove'],
+        s, i = 0;
+
+    while (s = shortcuts[i++]) {
+        h[s] = (function(s) {
+            return function(x, o) {
+                h.once(x, extend(o || {}, { type: s }));
+            };
+        })(s);
+    }
 
     h.dblclick = function(x, o) {
         h.once(x, extend(o || {}, {
