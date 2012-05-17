@@ -21,6 +21,9 @@ Shortcuts:
 * `happen.mousedown`
 * `happen.mouseup`
 * `happen.mousemove`
+* `happen.keydown`
+* `happen.keyup`
+* `happen.keypress`
 
 Use it with a testing framework, like [Jasmine](http://pivotal.github.com/jasmine/).
 
