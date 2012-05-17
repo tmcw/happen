@@ -17,10 +17,12 @@
         if (o.type.slice(0,3) === 'key') {
             evt = document.createEvent('KeyboardEvent');
             var initEvent;
-
+            
             if (evt.initKeyEvent) {
+                // https://developer.mozilla.org/en/DOM/event.initKeyEvent
                 initEvent = evt.initKeyEvent
             } else {
+                // https://developer.mozilla.org/en/DOM/KeyboardEvent
                 initEvent = evt.initKeyboardEvent
             }
 
@@ -33,7 +35,7 @@
                 false,  //  in boolean altKeyArg,
                 false,  //  in boolean shiftKeyArg,
                 false,  //  in boolean metaKeyArg,
-                13,     //  in unsigned long keyCodeArg,
+                72,     //  in unsigned long keyCodeArg,
                 0       //  in unsigned long charCodeArg);
             )
         } else {
