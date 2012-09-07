@@ -14,32 +14,24 @@
     h.once = function(x, o) {
         var evt;
 
-        if (o.type.slice(0,3) === 'key') {
+        if (o.type.slice(0, 3) === 'key') {
             evt = document.createEvent('KeyboardEvent');
-            var initEvent;
-            
-            if (evt.initKeyEvent) {
-                // https://developer.mozilla.org/en/DOM/event.initKeyEvent
-                initEvent = evt.initKeyEvent
-            } else {
-                // https://developer.mozilla.org/en/DOM/KeyboardEvent
-                initEvent = evt.initKeyboardEvent
-            }
-
-            evt.initEvent(
+            // https://developer.mozilla.org/en/DOM/event.initKeyEvent
+            // https://developer.mozilla.org/en/DOM/KeyboardEvent
+            evt[(evt.initKeyEvent) ? 'initKeyEvent'
+                : 'initKeyboardEvent'](
                 o.type, //  in DOMString typeArg,
                 true,   //  in boolean canBubbleArg,
                 true,   //  in boolean cancelableArg,
                 null,   //  in nsIDOMAbstractView viewArg,  Specifies UIEvent.view. This value may be null.
-                false,  //  in boolean ctrlKeyArg,
-                false,  //  in boolean altKeyArg,
-                false,  //  in boolean shiftKeyArg,
-                false,  //  in boolean metaKeyArg,
-                72,     //  in unsigned long keyCodeArg,
-                0       //  in unsigned long charCodeArg);
-            )
+                o.ctrl,  //  in boolean ctrlKeyArg,
+                o.alt,  //  in boolean altKeyArg,
+                o.shift,  //  in boolean shiftKeyArg,
+                o.meta,  //  in boolean metaKeyArg,
+                o.keyCode || 72,     //  in unsigned long keyCodeArg,
+                o.charCode || 0       //  in unsigned long charCodeArg);
+            );
         } else {
-
             evt = document.createEvent('MouseEvents');
             // https://developer.mozilla.org/en/DOM/event.initMouseEvent
             evt.initMouseEvent(o.type,
