@@ -24,11 +24,11 @@
                 true,   //  in boolean canBubbleArg,
                 true,   //  in boolean cancelableArg,
                 null,   //  in nsIDOMAbstractView viewArg,  Specifies UIEvent.view. This value may be null.
-                o.ctrl,  //  in boolean ctrlKeyArg,
-                o.alt,  //  in boolean altKeyArg,
-                o.shift,  //  in boolean shiftKeyArg,
-                o.meta,  //  in boolean metaKeyArg,
-                o.keyCode || 72,     //  in unsigned long keyCodeArg,
+                o.ctrl || false,  //  in boolean ctrlKeyArg,
+                o.alt || false,  //  in boolean altKeyArg,
+                o.shift || false,  //  in boolean shiftKeyArg,
+                o.meta || false,  //  in boolean metaKeyArg,
+                o.keyCode || 0,     //  in unsigned long keyCodeArg,
                 o.charCode || 0       //  in unsigned long charCodeArg);
             );
         } else {

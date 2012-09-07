@@ -1,5 +1,5 @@
 describe('Happen', function(){
-  describe('shortcuts', function() {
+  describe('mouse shortcuts', function() {
       var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove'];
       for (var i = 0; i < shortcuts.length; i++) {
           (function(i) {
@@ -16,6 +16,25 @@ describe('Happen', function(){
           });
         })(i);
       }
+  });
+
+  describe('keyboard events', function() {
+      it('.keyup()', function() {
+          var gotkey = false;
+          document.onkeyup = function() {
+              gotkey = true;
+          };
+          happen.keyup(document);
+          expect(gotkey).to.be(true);
+      });
+      it('.keyup() custom code', function() {
+          var keycode = -1;
+          document.onkeyup = function(e) {
+              keycode = e.keyCode;
+          };
+          happen.keyup(document, { keyCode: 30 });
+          expect(keycode).to.be(30);
+      });
   });
 
   describe('custom things', function() {
@@ -38,6 +57,5 @@ describe('Happen', function(){
         happen.dblclick(a);
         expect(clicks).to.be(2);
       });
-
   });
 });
