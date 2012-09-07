@@ -52,4 +52,8 @@
     };
 
     this.happen = h;
+
+    if (typeof module !== 'undefined') {
+        module.exports = this.happen;
+    }
 })(this);
