@@ -1,0 +1,22 @@
+{
+  "name": "happen",
+  "version": "0.0.0",
+  "description": "real browser events",
+  "main": "src/happen.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tmcw/happen.git"
+  },
+  "keywords": [
+    "testing",
+    "browser"
+  ],
+  "author": "Tom MacWright",
+  "license": "BSD"
+}
