@@ -1,6 +1,8 @@
 **happen** wraps the `createEvent` DOM API to make real
 event mocking in-browser palatable.
 
+## Native API
+
 ```javascript
 var element = document.getElementById('map');
 
@@ -14,6 +16,19 @@ happen.dblclick(element);
 happen.dblclick(element, { shift: true });
 ```
 
+## jQuery Plugin
+
+```javascript
+// Shortcut - 'click' is shorthand for { type: 'click' }
+$('.foo').happen('click');
+
+// Longhand - specify any sort of properties
+$('.foo').happen({ type: 'keyup', keyCode: 50 });
+
+// Works on any jQuery selection
+$('.foo, .bar').happen('dblclick');
+```
+
 Shortcuts:
 
 * `happen.click`
@@ -25,6 +40,7 @@ Shortcuts:
 * `happen.keyup`
 * `happen.keypress`
 
-Use it with a testing framework, like [Jasmine](http://pivotal.github.com/jasmine/).
+Use it with a testing framework, like [Jasmine](http://pivotal.github.com/jasmine/)
+or Mocha.
 
 Licensed BSD.

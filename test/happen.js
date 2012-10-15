@@ -1,6 +1,6 @@
 describe('Happen', function(){
   describe('mouse shortcuts', function() {
-      var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove'];
+      var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove', 'keyup', 'keypress'];
       for (var i = 0; i < shortcuts.length; i++) {
           (function(i) {
           describe('.' + shortcuts[i] + '()', function() {
@@ -56,6 +56,61 @@ describe('Happen', function(){
         };
         happen.dblclick(a);
         expect(clicks).to.be(2);
+      });
+  });
+
+  describe('jquery plugin', function() {
+      it('should inhabit $.happen', function() {
+          var d = $('<div></div>');
+          expect(typeof d.happen).to.be('function');
+          expect(d.happen('click')).to.be(d);
+      });
+      it('should click an element and trigger the jquery event', function() {
+          var d = $('<div></div>').appendTo('body'),
+              clicked = false;
+          d.click(function() {
+              clicked = true;
+          });
+          expect(d.happen({ type: 'click' })).to.be(d);
+          expect(clicked).to.be(true);
+      });
+      it('supports a string shortcut for type', function() {
+          var d = $('<div></div>').appendTo('body'),
+              clicked = false;
+          d.click(function() {
+              clicked = true;
+          });
+          expect(d.happen('click')).to.be(d);
+          expect(clicked).to.be(true);
+      });
+      it('triggers native events as well', function() {
+          var d = $('<div></div>').appendTo('body'),
+              clicked = false;
+          d[0].onclick = function() {
+              clicked = true;
+          };
+          expect(d.happen('click')).to.be(d);
+          expect(clicked).to.be(true);
+      });
+      it('works on the document element', function() {
+          var keyed = false;
+          document.onkeyup = function() {
+              keyed = true;
+          };
+          $(document).happen('keyup');
+          expect(keyed).to.be(true);
+      });
+      it('works on multiple elements', function() {
+          var a = false, b = false;
+          $('<div class="a"></div>').click(function() {
+              a = true;
+          }).appendTo('body');
+          $('<div class="b"></div>').click(function() {
+              b = true;
+          }).appendTo('body');
+          $('.a, .b').happen('click');
+          expect(a).to.be(true);
+          expect(b).to.be(true);
       });
   });
 });
