@@ -1,6 +1,16 @@
 **happen** wraps the `createEvent` DOM API to make real
 event mocking in-browser palatable.
 
+## Installation
+
+Raw:
+
+    wget https://raw.github.com/tmcw/happen/master/src/happen.js
+
+With [component](https://github.com/component/component)
+
+    component install tmcw/happen
+
 ## Native API
 
 ```javascript
@@ -41,6 +51,10 @@ Shortcuts:
 * `happen.keypress`
 
 Use it with a testing framework, like [Jasmine](http://pivotal.github.com/jasmine/)
-or Mocha.
+or [Mocha](http://visionmedia.github.com/mocha/).
+
+## See Also
+
+* [trigger-event](https://github.com/adamsanderson/trigger-event)
 
 Licensed BSD.
