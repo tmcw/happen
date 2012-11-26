@@ -91,7 +91,7 @@
     }
 
     // Provide jQuery plugin
-    if (typeof $ !== 'undefined' && $.fn) {
+    if ($ && $.fn) {
         $.fn.happen = function(o) {
             if (typeof o === 'string') {
                 o = { type: o };
@@ -102,4 +102,4 @@
             return this;
         };
     }
-})(this, jQuery);
+})(this, (typeof jQuery !== 'undefined') ? jQuery : null);
