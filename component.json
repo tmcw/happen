@@ -2,7 +2,7 @@
   "name": "happen",
   "repo": "tmcw/happen",
   "description": "real events for browsers",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["events", "mock", "trigger", "event"],
   "dependencies": {},
   "development": {},
