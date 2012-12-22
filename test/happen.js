@@ -1,6 +1,6 @@
 describe('Happen', function(){
   describe('mouse shortcuts', function() {
-      var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove', 'keyup', 'keypress'];
+      var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove', 'mouseover', 'mouseout', 'keyup', 'keypress'];
       for (var i = 0; i < shortcuts.length; i++) {
           (function(i) {
           describe('.' + shortcuts[i] + '()', function() {
