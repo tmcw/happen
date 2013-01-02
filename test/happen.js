@@ -1,6 +1,6 @@
 if (typeof require !== 'undefined') {
     var happen = require('../');
-    var expect = require('./expect');
+    var expect = require('chai').expect;
 }
 
 describe('Happen', function(){
