@@ -28,6 +28,7 @@
     ],
     "harness" : "mocha",
     "files": [
+        "jquery/jquery.js"
         "test/happen.js"
     ]
   },

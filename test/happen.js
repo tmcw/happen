@@ -1,6 +1,8 @@
 if (typeof require !== 'undefined') {
     var happen = require('../src/happen');
     var expect = require('chai').expect;
+} else {
+    var expect = chai.expect;
 }
 
 describe('Happen', function(){
@@ -16,7 +18,7 @@ describe('Happen', function(){
                     triggered = true;
                 };
                 happen[shortcuts[i]](a);
-                expect(triggered).to.be(true);
+                expect(triggered).to.be.true;
             });
           });
         })(i);
@@ -30,7 +32,7 @@ describe('Happen', function(){
               gotkey = true;
           };
           happen.keyup(document);
-          expect(gotkey).to.be(true);
+          expect(gotkey).to.be.true;
       });
       it('.keyup() custom code', function() {
           var keycode = -1;
@@ -38,7 +40,7 @@ describe('Happen', function(){
               keycode = e.keyCode;
           };
           happen.keyup(document, { keyCode: 30 });
-          expect(keycode).to.be(30);
+          expect(keycode).to.eql(30);
       });
   });
 
@@ -50,7 +52,7 @@ describe('Happen', function(){
             shift = e.shiftKey;
         };
         happen.click(a, { shift: true });
-        expect(shift).to.be(true);
+        expect(shift).to.eql(true);
       });
 
       it('has a dblclick shortcut', function() {
@@ -60,15 +62,15 @@ describe('Happen', function(){
             clicks = e.detail;
         };
         happen.dblclick(a);
-        expect(clicks).to.be(2);
+        expect(clicks).to.eql(2);
       });
   });
 
   describe('jquery plugin', function() {
       it('should inhabit $.happen', function() {
           var d = $('<div></div>');
-          expect(typeof d.happen).to.be('function');
-          expect(d.happen('click')).to.be(d);
+          expect(typeof d.happen).to.eql('function');
+          expect(d.happen('click')).to.eql(d);
       });
       it('should click an element and trigger the jquery event', function() {
           var d = $('<div></div>').appendTo('body'),
@@ -76,8 +78,8 @@ describe('Happen', function(){
           d.click(function() {
               clicked = true;
           });
-          expect(d.happen({ type: 'click' })).to.be(d);
-          expect(clicked).to.be(true);
+          expect(d.happen({ type: 'click' })).to.eql(d);
+          expect(clicked).to.eql(true);
       });
       it('supports a string shortcut for type', function() {
           var d = $('<div></div>').appendTo('body'),
@@ -85,8 +87,8 @@ describe('Happen', function(){
           d.click(function() {
               clicked = true;
           });
-          expect(d.happen('click')).to.be(d);
-          expect(clicked).to.be(true);
+          expect(d.happen('click')).to.eql(d);
+          expect(clicked).to.eql(true);
       });
       it('triggers native events as well', function() {
           var d = $('<div></div>').appendTo('body'),
@@ -94,8 +96,8 @@ describe('Happen', function(){
           d[0].onclick = function() {
               clicked = true;
           };
-          expect(d.happen('click')).to.be(d);
-          expect(clicked).to.be(true);
+          expect(d.happen('click')).to.eql(d);
+          expect(clicked).to.eql(true);
       });
       it('works on the document element', function() {
           var keyed = false;
@@ -103,7 +105,7 @@ describe('Happen', function(){
               keyed = true;
           };
           $(document).happen('keyup');
-          expect(keyed).to.be(true);
+          expect(keyed).to.eql(true);
       });
       it('works on multiple elements', function() {
           var a = false, b = false;
@@ -114,8 +116,8 @@ describe('Happen', function(){
               b = true;
           }).appendTo('body');
           $('.a, .b').happen('click');
-          expect(a).to.be(true);
-          expect(b).to.be(true);
+          expect(a).to.be.true;
+          expect(b).to.be.true;
       });
   });
 });
