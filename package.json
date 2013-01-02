@@ -23,8 +23,9 @@
   },
   "testling": {
     "browsers": [
-        "ie6", "ie7", "ie8", "ie9",
-        "firefox/15", "chrome/22", "opera/12", "safari/5.1"
+        "ie7", "ie8", "ie9", "opera/12.0",
+        "firefox/16", "firefox/17", "chrome/22",
+        "chrome/23", "opera/12", "safari/5.1"
     ],
     "harness" : "mocha",
     "files": [
