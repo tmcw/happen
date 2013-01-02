@@ -1,5 +1,5 @@
 if (typeof require !== 'undefined') {
-    var happen = require('../');
+    var happen = require('../src/happen');
     var expect = require('chai').expect;
 }
 
