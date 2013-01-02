@@ -1,3 +1,8 @@
+if (typeof require !== 'undefined') {
+    var happen = require('../');
+    var expect = require('./expect');
+}
+
 describe('Happen', function(){
   describe('mouse shortcuts', function() {
       var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove', 'mouseover', 'mouseout', 'keyup', 'keypress'];
