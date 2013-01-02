@@ -56,5 +56,3 @@ or [Mocha](http://visionmedia.github.com/mocha/).
 ## See Also
 
 * [trigger-event](https://github.com/adamsanderson/trigger-event)
-
-Licensed BSD.

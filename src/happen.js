@@ -65,7 +65,8 @@
         x.dispatchEvent(evt);
     };
 
-    var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove', 'mouseover', 'mouseout', 'keydown', 'keyup', 'keypress'],
+    var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove',
+        'mouseover', 'mouseout', 'keydown', 'keyup', 'keypress'],
         s, i = 0;
 
     while (s = shortcuts[i++]) {
