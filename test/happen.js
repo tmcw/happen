@@ -18,7 +18,7 @@ describe('Happen', function(){
                     triggered = true;
                 };
                 happen[shortcuts[i]](a);
-                expect(triggered).to.be.true;
+                expect(triggered).to.eql(true);
             });
           });
         })(i);
@@ -32,7 +32,7 @@ describe('Happen', function(){
               gotkey = true;
           };
           happen.keyup(document);
-          expect(gotkey).to.be.true;
+          expect(gotkey).to.eql(true);
       });
       it('.keyup() custom code', function() {
           var keycode = -1;
@@ -116,8 +116,8 @@ describe('Happen', function(){
               b = true;
           }).appendTo('body');
           $('.a, .b').happen('click');
-          expect(a).to.be.true;
-          expect(b).to.be.true;
+          expect(a).to.eql(true);
+          expect(b).to.eql(true);
       });
   });
 });
