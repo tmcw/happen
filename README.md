@@ -53,6 +53,10 @@ Shortcuts:
 Use it with a testing framework, like [Jasmine](http://pivotal.github.com/jasmine/)
 or [Mocha](http://visionmedia.github.com/mocha/).
 
+[![](http://ci.testling.com/tmcw/happen.png)](http://ci.testling.com/tmcw/happen)
+
+(IE tests failing due to Chai)
+
 ## See Also
 
 * [trigger-event](https://github.com/adamsanderson/trigger-event)
