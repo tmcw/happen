@@ -1,3 +1,7 @@
+## 0.1.2
+
+* Fixes keyboard events in Safari
+
 ## 0.1.1
 
 * Fixes naming of modifier keys
