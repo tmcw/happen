@@ -33,7 +33,7 @@ describe('Happen', function(){
                     var props = {};
                     props[modifiers[j]] = true;
                     happen[shortcuts[i]](a, props);
-                    expect(triggered).to.be(true);
+                    expect(triggered).to.eql(true);
                 });
               })(j);
             }
