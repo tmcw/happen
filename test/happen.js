@@ -6,7 +6,7 @@ if (typeof require !== 'undefined') {
 }
 
 describe('Happen', function(){
-  describe('mouse shortcuts', function() {
+  describe('shortcuts', function() {
       var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove', 'mouseover', 'mouseout', 'keyup', 'keypress'];
       for (var i = 0; i < shortcuts.length; i++) {
           (function(i) {
@@ -20,6 +20,23 @@ describe('Happen', function(){
                 happen[shortcuts[i]](a);
                 expect(triggered).to.eql(true);
             });
+
+            var modifiers = ['ctrlKey', 'altKey', 'shiftKey', 'metaKey'];
+            for (var j = 0; j < modifiers.length; j++) {
+                (function(j) {
+                it('supports the ' + modifiers[j] + ' modifier', function(){
+                    var a = document.createElement('a');
+                    var triggered = false;
+                    a['on' + shortcuts[i]] = function(e) {
+                        triggered = e[modifiers[j]];
+                    };
+                    var props = {};
+                    props[modifiers[j]] = true;
+                    happen[shortcuts[i]](a, props);
+                    expect(triggered).to.be(true);
+                });
+              })(j);
+            }
           });
         })(i);
       }
@@ -51,7 +68,7 @@ describe('Happen', function(){
         a.onclick = function(e) {
             shift = e.shiftKey;
         };
-        happen.click(a, { shift: true });
+        happen.click(a, { shiftKey: true });
         expect(shift).to.eql(true);
       });
 
