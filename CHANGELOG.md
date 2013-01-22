@@ -1,3 +1,7 @@
+## 0.1.1
+
+* Fixes naming of modifier keys
+
 ## 0.1.0
 
 * Add `mouseover` and `mouseout` events.
