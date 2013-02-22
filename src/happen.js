@@ -14,6 +14,7 @@
     h.once = function(x, o) {
         var evt;
 
+        // keyboard events
         if (o.type.slice(0, 3) === 'key') {
             if (typeof Event === 'function') {
                 evt = new Event(o.type);
@@ -58,28 +59,41 @@
                     evt.charCode = o.charCode || 0;
                 }
             }
+        // mouse events
         } else {
-            evt = document.createEvent('MouseEvents');
-            // https://developer.mozilla.org/en/DOM/event.initMouseEvent
-            evt.initMouseEvent(o.type,
-                true, // canBubble
-                true, // cancelable
-                window, // 'AbstractView'
-                o.detail || 0, // click count or mousewheel detail
-                o.screenX || 0, // screenX
-                o.screenY || 0, // screenY
-                o.clientX || 0, // clientX
-                o.clientY || 0, // clientY
-                o.ctrlKey || 0, // ctrl
-                o.altKey || false, // alt
-                o.shiftKey || false, // shift
-                o.metaKey || false, // meta
-                o.button || false, // mouse button
-                null // relatedTarget
-            );
+            // standards browsers
+            if (document.createEvent) {
+                evt = document.createEvent('MouseEvents');
+                // https://developer.mozilla.org/en/DOM/event.initMouseEvent
+                evt.initMouseEvent(o.type,
+                    true, // canBubble
+                    true, // cancelable
+                    window, // 'AbstractView'
+                    o.detail || 0, // click count or mousewheel detail
+                    o.screenX || 0, // screenX
+                    o.screenY || 0, // screenY
+                    o.clientX || 0, // clientX
+                    o.clientY || 0, // clientY
+                    o.ctrlKey || 0, // ctrl
+                    o.altKey || false, // alt
+                    o.shiftKey || false, // shift
+                    o.metaKey || false, // meta
+                    o.button || false, // mouse button
+                    null // relatedTarget
+                );
+            // internet explorer
+            } else if (document.createEventObject) {
+                evt = document.createEventObject();
+                evt.eventType = o.type;
+                extend(evt, o);
+            }
         }
 
-        x.dispatchEvent(evt);
+        if (x.fireEvent) {
+            x.fireEvent('on' + o.type, evt);
+        } else if (x.dispatchEvent) {
+            x.dispatchEvent(evt);
+        }
     };
 
     var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove',
