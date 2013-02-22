@@ -24,6 +24,22 @@ happen.dblclick(element);
 
 // custom options
 happen.dblclick(element, { shift: true });
+
+// any other event type under MouseEvents
+happen.once(element, {
+    type: 'mousewheel',
+    detail: -100
+});
+
+// The once api takes
+happen.once(
+    // element
+    element, {
+        // event type (e.type)
+        type: 'mousewheel',
+        // any other options
+        detail: -100
+    });
 ```
 
 ## jQuery Plugin

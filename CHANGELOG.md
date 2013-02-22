@@ -1,3 +1,8 @@
+## 0.1.3
+
+* The 'clicks' parameter is now called 'detail' because it is used
+  outside of just double-clicking.
+
 ## 0.1.2
 
 * Fixes keyboard events in Safari

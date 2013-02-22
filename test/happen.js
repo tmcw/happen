@@ -1,8 +1,5 @@
 if (typeof require !== 'undefined') {
-    var happen = require('../src/happen');
-    var expect = require('chai').expect;
-} else {
-    var expect = chai.expect;
+    expect = require('expect');
 }
 
 describe('Happen', function(){
@@ -43,43 +40,40 @@ describe('Happen', function(){
   });
 
   describe('keyboard events', function() {
-      it('.keyup()', function() {
-          var gotkey = false;
+      it('.keyup()', function(done) {
           document.onkeyup = function() {
-              gotkey = true;
+              done();
           };
           happen.keyup(document);
-          expect(gotkey).to.eql(true);
       });
-      it('.keyup() custom code', function() {
+      it('.keyup() custom code', function(done) {
           var keycode = -1;
           document.onkeyup = function(e) {
-              keycode = e.keyCode;
+              expect(e.keyCode).to.eql(30);
+              done();
           };
           happen.keyup(document, { keyCode: 30 });
-          expect(keycode).to.eql(30);
       });
   });
 
   describe('custom things', function() {
-      it('should .click() with options', function() {
+      it('should .click() with options', function(done) {
         var a = document.createElement('a');
-        var shift = false;
         a.onclick = function(e) {
-            shift = e.shiftKey;
+            expect(e.shiftKey).to.eql(true);
+            done();
         };
         happen.click(a, { shiftKey: true });
-        expect(shift).to.eql(true);
       });
 
-      it('has a dblclick shortcut', function() {
+      it('has a dblclick shortcut', function(done) {
         var a = document.createElement('a');
-        var clicks = -1;
+        var detail = -1;
         a.ondblclick = function(e) {
-            clicks = e.detail;
+            expect(e.detail).to.eql(2);
+            done();
         };
         happen.dblclick(a);
-        expect(clicks).to.eql(2);
       });
   });
 

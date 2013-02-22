@@ -1,38 +1,38 @@
 {
-  "name": "happen",
-  "version": "0.1.2",
-  "description": "real browser events",
-  "main": "src/happen.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/tmcw/happen.git"
-  },
-  "keywords": [
-    "testing",
-    "browser"
-  ],
-  "devDependencies": {
-      "mocha": "~1.7.4",
-      "chai": "1.4.2"
-  },
-  "testling": {
-    "browsers": [
-        "ie7", "ie8", "ie9", "opera/12.0",
-        "firefox/16", "firefox/17", "chrome/22",
-        "chrome/23", "opera/12", "safari/5.1"
+    "name": "happen",
+    "version": "0.1.2",
+    "description": "real browser events",
+    "main": "src/happen.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/tmcw/happen.git"
+    },
+    "keywords": [
+        "testing",
+        "browser"
     ],
-    "harness" : "mocha",
-    "files": [
-        "jquery/jquery.js",
-        "test/happen.js"
-    ]
-  },
-  "author": "Tom MacWright",
-  "license": "BSD"
+    "devDependencies": {
+        "mocha": "~1.8",
+        "expect.js": "~0.2.0"
+    },
+    "testling": {
+        "browsers": [
+            "ie7", "ie8", "ie9", "opera/12.0",
+            "firefox/16", "firefox/17", "chrome/22",
+            "chrome/23", "opera/12", "safari/5.1"
+        ],
+        "harness" : "mocha",
+        "files": [
+            "jquery/jquery.js",
+            "test/happen.js"
+        ]
+    },
+    "author": "Tom MacWright",
+    "license": "BSD"
 }

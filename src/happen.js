@@ -65,7 +65,7 @@
                 true, // canBubble
                 true, // cancelable
                 window, // 'AbstractView'
-                o.clicks || 0, // click count
+                o.detail || 0, // click count or mousewheel detail
                 o.screenX || 0, // screenX
                 o.screenY || 0, // screenY
                 o.clientX || 0, // clientX
@@ -97,7 +97,7 @@
     h.dblclick = function(x, o) {
         h.once(x, extend(o || {}, {
             type: 'dblclick',
-            clicks: 2
+            detail: 2
         }));
     };
 
