@@ -1,5 +1,5 @@
 if (typeof require !== 'undefined') {
-    expect = require('expect');
+    expect = require('expect.js');
 }
 
 describe('Happen', function(){
