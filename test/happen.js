@@ -3,6 +3,10 @@ if (typeof require !== 'undefined') {
     happen = require('../');
 }
 
+function getA() {
+    return document.body.appendChild(document.createElement('a'));
+}
+
 describe('Happen', function(){
   describe('shortcuts', function() {
       var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove',
@@ -11,7 +15,7 @@ describe('Happen', function(){
           (function(i) {
           describe('.' + shortcuts[i] + '()', function() {
             it('should trigger the ' + shortcuts[i] + ' event', function(){
-                var a = document.createElement('a');
+                var a = getA();
                 var triggered = false;
                 a['on' + shortcuts[i]] = function() {
                     triggered = true;
@@ -24,7 +28,7 @@ describe('Happen', function(){
             for (var j = 0; j < modifiers.length; j++) {
                 (function(j) {
                 it('supports the ' + modifiers[j] + ' modifier', function(){
-                    var a = document.createElement('a');
+                    var a = getA();
                     var triggered = false;
                     a['on' + shortcuts[i]] = function(e) {
                         triggered = e[modifiers[j]];
@@ -60,7 +64,7 @@ describe('Happen', function(){
 
   describe('options', function() {
       it('should .click() with options', function(done) {
-        var a = document.createElement('a');
+        var a = getA();
         a.onclick = function(e) {
             expect(e.shiftKey).to.eql(true);
             done();
@@ -69,7 +73,7 @@ describe('Happen', function(){
       });
 
       it('has a dblclick shortcut', function(done) {
-        var a = document.createElement('a');
+        var a = getA();
         var detail = -1;
         a.ondblclick = function(e) {
             expect(e.detail).to.eql(2);
