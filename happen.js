@@ -129,12 +129,8 @@
         h.once(x, extend(o || {}, { type: 'dblclick', detail: 2 }));
     };
 
-    this.happen = h;
-
-    // Export for nodejs
-    if (typeof module !== 'undefined') {
-        module.exports = this.happen;
-    }
+    if (typeof window !== 'undefined') window.happen = h;
+    if (typeof module !== 'undefined') module.exports = h;
 
     // Provide jQuery plugin
     if (typeof jQuery !== 'undefined' && jQuery.fn) {

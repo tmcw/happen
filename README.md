@@ -5,7 +5,7 @@ event mocking in-browser palatable.
 
 Raw:
 
-    wget https://raw.github.com/tmcw/happen/master/src/happen.js
+    wget https://raw.github.com/tmcw/happen/master/happen.js
 
 With [component](https://github.com/component/component)
 

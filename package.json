@@ -2,7 +2,7 @@
     "name": "happen",
     "version": "0.1.2",
     "description": "real browser events",
-    "main": "src/happen.js",
+    "main": "happen.js",
     "directories": {
         "test": "test"
     },
