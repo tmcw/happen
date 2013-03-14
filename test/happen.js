@@ -4,7 +4,8 @@ if (typeof require !== 'undefined') {
 
 describe('Happen', function(){
   describe('shortcuts', function() {
-      var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove', 'mouseover', 'mouseout', 'keyup', 'keypress'];
+      var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove',
+          'mouseover', 'mouseout', 'keydown', 'keyup', 'keypress'];
       for (var i = 0; i < shortcuts.length; i++) {
           (function(i) {
           describe('.' + shortcuts[i] + '()', function() {
@@ -56,7 +57,7 @@ describe('Happen', function(){
       });
   });
 
-  describe('custom things', function() {
+  describe('options', function() {
       it('should .click() with options', function(done) {
         var a = document.createElement('a');
         a.onclick = function(e) {
