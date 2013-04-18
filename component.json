@@ -6,7 +6,8 @@
   "keywords": ["events", "mock", "trigger", "event"],
   "dependencies": {},
   "development": {},
+  "main": "happen.js",
   "scripts": [
-    "src/happen.js"
+    "happen.js"
   ]
 }
