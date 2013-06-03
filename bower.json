@@ -1,0 +1,10 @@
+{
+  "name": "happen",
+  "version": "0.1.2",
+  "main": "happen.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}

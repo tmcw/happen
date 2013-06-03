@@ -3,19 +3,23 @@ event mocking in-browser palatable.
 
 ## Installation
 
-Raw:
+### Raw:
 
     wget https://raw.github.com/tmcw/happen/master/happen.js
 
-With [component](https://github.com/component/component)
+### With [component](https://github.com/component/component)
 
     component install tmcw/happen
 
-## With Browserify
+### With Browserify
 
     npm install happen
 
     var happen = require('happen');
+
+### With [bower](https://github.com/bower/bower)
+
+    bower install tmcw/happen
 
 ## Native API
 
