@@ -9,10 +9,10 @@
         <meta name='viewport' content='initial-scale=1.0 maximum-scale=1.0'>
     </head>
     <body>
-        <div class='col8 margin2 pad2'>
+        <div class='col10 margin1 pad2'>
             <h1>happen <em>makes <strong>real</strong> events happen <strong>in browser</strong></em></h1>
             <br />
-            <div class='col8 margin2'>
+            <div class='col5'>
                 <p>JavaScript is great at listening for handling events - a
                 user clicks, drags, or types, and we know: jQuery makes it easy
                 to say <code>$('#foo').click(function() {})</code>.</p>
@@ -23,6 +23,30 @@
                 <p>Why? Script interfaces for web scraping, test applications
                 based on really whether they respond to events, emulate
                 touch or mouse events as vice versa, and more.</p>
+                <h3>Doesn't jQuery Do This?</h3>
+                <p>Not really. jQuery can trigger events that it binds,
+                through its <code>.trigger('eventname')</code> function, but
+                can't trigger events bound outside of jQuery's kingdom. Happen
+                can trigger events bound the old fashioned way with <code>.onclick</code>,
+                the new-fashioned way with <code>.addEventListener</code>, and
+                even just bound by your browser with a default behavior.
+                </p>
+            </div>
+            <div class='col6 margin1'>
+                <div class='demo'>
+                <a id='say-hi'>click me to say hi</a> / <a href='#' id='click-other'>click click me to click on the other link</a>
+            </div>
+                <pre><code>var say_hi = document.getElementById('say-hi'),
+    click_other = document.getElementById('click-other');
+
+say_hi.onclick = function() {
+    alert('hi');
+};
+
+click_other.onclick = function() {
+    happen.click(say_hi);
+    return false;
+}</code></pre>
             </div>
             <div class='col12 clearfix'>
                 <div class='col3'>
@@ -39,6 +63,20 @@
                 </div>
             </div>
         </div>
-        <script src=''></script>
+        <script src='jquery/jquery.js'></script>
+        <script src='happen.js'></script>
+        <script>
+var say_hi = document.getElementById('say-hi'),
+    click_other = document.getElementById('click-other');
+
+say_hi.onclick = function() {
+    alert('hi');
+};
+
+click_other.onclick = function() {
+    happen.click(say_hi);
+    return false;
+}
+        </script>
     </body>
 </html>
