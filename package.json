@@ -21,8 +21,7 @@
     "chai": "^3.2.0",
     "expect.js": "~0.3.1",
     "mocha": "~2.3.0",
-    "mocha-phantomjs": "^3.6.0",
-    "phantomjs": "^1.9.7-15"
+    "mocha-phantomjs": "^3.6.0"
   },
   "author": "Tom MacWright",
   "license": "BSD"
