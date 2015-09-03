@@ -81,6 +81,16 @@ describe('Happen', function(){
         };
         happen.dblclick(a);
       });
+
+      it('honours relatedTarget option', function(done) {
+        var a = getA();
+        var a2 = getA();
+        a.onmouseover = function(e) {
+            expect(e.relatedTarget).to.eql(a2);
+            done();
+        };
+        happen.mouseover(a, { relatedTarget: a2 });
+      });
   });
 
   describe('jquery plugin', function() {

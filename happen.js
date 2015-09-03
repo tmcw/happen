@@ -34,6 +34,7 @@
                 evt.metaKey = o.metaKey || false;
                 evt.ctrlKey = o.ctrlKey || false;
                 evt.altKey = o.altKey || false;
+                evt.relatedTarget = o.relatedTarget;
             } else {
                 evt = document.createEvent('KeyboardEvent');
                 // https://developer.mozilla.org/en/DOM/event.initKeyEvent
@@ -92,7 +93,7 @@
                     o.shiftKey || false, // shift
                     o.metaKey || false, // meta
                     o.button || false, // mouse button
-                    null // relatedTarget
+                    o.relatedTarget // relatedTarget
                 );
             }
         }
