@@ -1,3 +1,7 @@
+## 0.2.0
+
+* Add ability to define `relatedTarget` property of an event.
+
 ## 0.1.3
 
 * The 'clicks' parameter is now called 'detail' because it is used
