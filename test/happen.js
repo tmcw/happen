@@ -1,8 +1,3 @@
-if (typeof require !== 'undefined') {
-    expect = require('expect.js');
-    happen = require('../');
-}
-
 function getA() {
     return document.body.appendChild(document.createElement('a'));
 }
