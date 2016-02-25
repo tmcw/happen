@@ -3,7 +3,8 @@
         events = {
             mouse: ['click', 'mousedown', 'mouseup', 'mousemove',
                 'mouseover', 'mouseout'],
-            key: ['keydown', 'keyup', 'keypress']
+            key: ['keydown', 'keyup', 'keypress'],
+            touch:['touchstart', 'touchmove', 'touchend']
         },
         s, i;
 
@@ -76,25 +77,31 @@
                 evt = document.createEventObject();
                 extend(evt, o);
             } else if (typeof document.createEvent !== 'undefined') {
-                // both MouseEvent and MouseEvents work in Chrome
-                evt = document.createEvent('MouseEvents');
-                // https://developer.mozilla.org/en/DOM/event.initMouseEvent
-                evt.initMouseEvent(o.type,
-                    true, // canBubble
-                    true, // cancelable
-                    window, // 'AbstractView'
-                    o.detail || 0, // click count or mousewheel detail
-                    o.screenX || 0, // screenX
-                    o.screenY || 0, // screenY
-                    o.clientX || 0, // clientX
-                    o.clientY || 0, // clientY
-                    o.ctrlKey || 0, // ctrl
-                    o.altKey || false, // alt
-                    o.shiftKey || false, // shift
-                    o.metaKey || false, // meta
-                    o.button || false, // mouse button
-                    o.relatedTarget // relatedTarget
-                );
+                if (has(events.touch, o.type)) {
+                    evt = document.createEvent('UIEvent');
+                    evt.initUIEvent(o.type, true, true, window, o.detail || 1);
+                    extend(evt, o);
+                } else {
+                    // both MouseEvent and MouseEvents work in Chrome
+                    evt = document.createEvent('MouseEvents');
+                    // https://developer.mozilla.org/en/DOM/event.initMouseEvent
+                    evt.initMouseEvent(o.type,
+                        true, // canBubble
+                        true, // cancelable
+                        window, // 'AbstractView'
+                        o.detail || 0, // click count or mousewheel detail
+                        o.screenX || 0, // screenX
+                        o.screenY || 0, // screenY
+                        o.clientX || 0, // clientX
+                        o.clientY || 0, // clientY
+                        o.ctrlKey || 0, // ctrl
+                        o.altKey || false, // alt
+                        o.shiftKey || false, // shift
+                        o.metaKey || false, // meta
+                        o.button || false, // mouse button
+                        o.relatedTarget // relatedTarget
+                    );
+                }
             }
         }
         return evt;

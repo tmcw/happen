@@ -2,6 +2,14 @@ function getA() {
     return document.body.appendChild(document.createElement('a'));
 }
 
+function addDomEvent(obj, type, handler) {
+  if ('addEventListener' in obj) {
+      obj.addEventListener(type, handler, false);
+  } else if ('attachEvent' in obj) {
+      obj.attachEvent('on' + type, handler);
+  }
+}
+
 describe('Happen', function(){
   describe('shortcuts', function() {
       var shortcuts = ['click', 'mousedown', 'mouseup', 'mousemove',
@@ -54,6 +62,54 @@ describe('Happen', function(){
               done();
           };
           happen.keyup(document, { keyCode: 30 });
+      });
+  });
+
+  describe('touch events', function() {
+      it('touchstart', function(done) {
+          addDomEvent(document, 'touchstart', function(param) {
+              expect(param.type).to.be.eql('touchstart');
+              expect(param.touches).to.have.length(2);
+              done();
+          });
+          happen.once(document, {
+              'type':'touchstart',
+              'touches' : [{
+                            pageX : 100,
+                            pageY : 100,
+                        },
+                        {
+                            pageX : 105,
+                            pageY : 105,
+                        }]
+          });
+      });
+      it('touchmove', function(done) {
+          addDomEvent(document, 'touchmove', function(param) {
+              expect(param.type).to.be.eql('touchmove');
+              expect(param.touches).to.have.length(2);
+              done();
+          });
+          happen.once(document, {
+              'type':'touchmove',
+              'touches' : [{
+                            pageX : 100,
+                            pageY : 100,
+                        },
+                        {
+                            pageX : 105,
+                            pageY : 105,
+                        }]
+          });
+      });
+      it('touchend', function(done) {
+          addDomEvent(document, 'touchend', function(param) {
+              expect(param.type).to.be.eql('touchend');
+              done();
+          });
+          happen.once(document, {
+              'type':'touchend'
+          });
       });
   });
 
