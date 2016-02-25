@@ -1,3 +1,7 @@
+## 0.3.0
+
+* Added touch support: `touchstart`, `touchmove`, and `touchend`.
+
 ## 0.2.0
 
 * Add ability to define `relatedTarget` property of an event.
