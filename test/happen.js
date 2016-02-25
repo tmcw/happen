@@ -4,7 +4,6 @@ function getA() {
 
 function addDomEvent(obj, type, handler) {
   if ('addEventListener' in obj) {
-      //滚轮事件的特殊处理
       obj.addEventListener(type, handler, false);
   } else if ('attachEvent' in obj) {
       obj.attachEvent('on' + type, handler);
