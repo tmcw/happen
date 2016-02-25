@@ -1,4 +1,4 @@
-[![build status](https://secure.travis-ci.org/tmcw/happen.svg)](http://travis-ci.org/tmcw/happen)
+[![Circle CI](https://circleci.com/gh/tmcw/happen.svg?style=svg)](https://circleci.com/gh/tmcw/happen)
 
 **happen** wraps the `createEvent` DOM API to make real
 event mocking in-browser palatable.
