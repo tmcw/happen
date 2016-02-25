@@ -1,4 +1,5 @@
-!(function(context) {
+/* global module jQuery */
+!(function() {
     var h = {},
         events = {
             mouse: ['click', 'mousedown', 'mouseup', 'mousemove',
@@ -145,7 +146,7 @@
         jQuery.fn.happen = function(o) {
             if (typeof o === 'string') o = { type: o };
             for (var i = 0; i < this.length; i++) {
-                happen.once(this[i], o);
+                h.once(this[i], o);
             }
             return this;
         };
