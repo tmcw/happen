@@ -66,7 +66,7 @@ describe('Happen', function(){
   });
 
   describe('touch events', function() {
-      it('.touchstart()', function(done) {
+      it('touchstart', function(done) {
           addDomEvent(document, 'touchstart', function(param) {
               expect(param.type).to.be.eql('touchstart');
               expect(param.touches).to.have.length(2);
@@ -84,7 +84,7 @@ describe('Happen', function(){
                         }]
           });
       });
-      it('.touchmove', function(done) {
+      it('touchmove', function(done) {
           addDomEvent(document, 'touchmove', function(param) {
               expect(param.type).to.be.eql('touchmove');
               expect(param.touches).to.have.length(2);
@@ -102,7 +102,7 @@ describe('Happen', function(){
                         }]
           });
       });
-      it('.touchend', function(done) {
+      it('touchend', function(done) {
           addDomEvent(document, 'touchend', function(param) {
               expect(param.type).to.be.eql('touchend');
               done();
