@@ -53,6 +53,12 @@ have options:
 * metaKey
 * button
 
+#### Touch Events
+
+* touchstart
+* touchmove
+* touchend
+
 ```javascript
 var element = document.getElementById('map');
 
@@ -79,6 +85,19 @@ happen.once(
         type: 'mousewheel',
         // any other options
         detail: -100
+    });
+
+// touch events
+happen.once(element, {
+        type : 'touchstart',
+        touches : [{
+                pageX : 800,
+                pageY : 800
+            },
+            {
+                pageX : 400,
+                pageY : 400
+            }]
     });
 ```
 
