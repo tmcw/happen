@@ -134,6 +134,7 @@ or [Mocha](http://visionmedia.github.com/mocha/).
 
 ## See Also
 
+* [simulant](https://github.com/Rich-Harris/simulant)
 * [trigger-event](https://github.com/adamsanderson/trigger-event)
 * [dom-event](https://github.com/jkroso/dom-event)
 * [synthetic-dom-events](https://github.com/shtylman/synthetic-dom-events)
