@@ -5,6 +5,8 @@ event mocking in-browser palatable.
 
 ## Installation
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tmcw/happen.svg)](https://greenkeeper.io/)
+
 ### Raw:
 
     wget https://raw.github.com/tmcw/happen/master/happen.js
