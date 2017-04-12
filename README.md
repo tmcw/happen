@@ -1,4 +1,5 @@
-[![Circle CI](https://circleci.com/gh/tmcw/happen.svg?style=svg)](https://circleci.com/gh/tmcw/happen)
+[![Circle CI](https://circleci.com/gh/tmcw/happen.svg?style=shield)](https://circleci.com/gh/tmcw/happen)
+[![Greenkeeper badge](https://badges.greenkeeper.io/tmcw/happen.svg)](https://greenkeeper.io/)
 
 **happen** wraps the `createEvent` DOM API to make real
 event mocking in-browser palatable.
