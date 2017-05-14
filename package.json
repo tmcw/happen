@@ -21,7 +21,7 @@
     "chai": "^3.2.0",
     "eslint": "^3.19.0",
     "expect.js": "~0.3.1",
-    "mocha": "~3.3.0",
+    "mocha": "~3.4.1",
     "mocha-phantomjs": "^4.0.2",
     "phantomjs-prebuilt": "^2.1.4"
   },
