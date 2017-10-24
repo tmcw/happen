@@ -29,7 +29,7 @@
         var evt;
         if (has(events.key, o.type)) {
             if (typeof Event === 'function') {
-                evt = new Event(o.type);
+                evt = new Event(o.type, { bubbles: true });
                 evt.keyCode = o.keyCode || 0;
                 evt.charCode = o.charCode || 0;
                 evt.shiftKey = o.shiftKey || false;
