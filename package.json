@@ -1,6 +1,6 @@
 {
   "name": "happen",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "real browser events",
   "main": "happen.js",
   "directories": {

@@ -1,3 +1,17 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/tmcw/happen/compare/v0.3.1...v0.3.2) (2017-10-25)
+
+
+### Bug Fixes
+
+* Enable bubbling for DOM3 Event ([8413443](https://github.com/tmcw/happen/commit/8413443))
+
+
+
 ## 0.3.0
 
 * Added touch support: `touchstart`, `touchmove`, and `touchend`.
