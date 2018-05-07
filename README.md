@@ -127,7 +127,7 @@ Shortcuts:
 * `happen.keypress`
 
 Use it with a testing framework, like [Jasmine](http://pivotal.github.com/jasmine/)
-or [Mocha](http://visionmedia.github.com/mocha/).
+or [Mocha](http://mochajs.org/).
 
 [![](http://ci.testling.com/tmcw/happen.png)](http://ci.testling.com/tmcw/happen)
 
